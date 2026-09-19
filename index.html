@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expense & Budget Visualizer</title>
+  <!-- Menghubungkan ke file CSS di dalam folder css -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Library Chart.js dari internet untuk gambar Pie Chart -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <!-- Header / Judul Atas -->
+  <header class="app-header">
+    <h1>Expense & Budget Visualizer</h1>
+  </header>
+
+  <!-- Konten Utama -->
+  <main class="container">
+    
+    <!-- Kartu Total Balance -->
+    <section class="card balance-card">
+      <p class="balance-title">TOTAL BALANCE</p>
+      <h2 id="total-balance">$0.00</h2>
+    </section>
+
+    <!-- Grid / Layout Dua Kolom -->
+    <div class="main-grid">
+      
+      <!-- Kartu Form Input -->
+      <section class="card form-card">
+        <h3>Add Transaction</h3>
+        <form id="transaction-form">
+          <div class="form-group">
+            <label for="item-name">Item Name</label>
+            <input type="text" id="item-name" placeholder="Cilok" required>
+          </div>
+
+          <div class="form-group">
+            <label for="amount">Amount</label>
+            <input type="number" id="amount" step="0.01" placeholder="14.94" required>
+          </div>
+
+          <div class="form-group">
+            <label for="category">Category</label>
+            <select id="category" required>
+              <option value="" disabled selected>Select Category</option>
+              <option value="Food">Food</option>
+              <option value="Transport">Transport</option>
+              <option value="Fun">Fun</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn-submit">Add Transaction</button>
+        </form>
+      </section>
+
+      <!-- Kartu Daftar Transaksi -->
+      <section class="card list-card">
+        <h3>Transactions</h3>
+        <ul id="transaction-list" class="transaction-list">
+          <!-- Item transaksi akan muncul otomatis di sini -->
+        </ul>
+      </section>
+
+      <!-- Kartu Grafik Pie Chart -->
+      <section class="card chart-card">
+        <h3>Spending by Category</h3>
+        <div class="chart-container">
+          <canvas id="expense-chart"></canvas>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Menghubungkan ke file JavaScript di dalam folder js -->
+  <script src="js/script.js"></script>
+</body>
+</html>
